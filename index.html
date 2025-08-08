@@ -1,155 +1,631 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>PETCool – Caixa Térmica Sustentável</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"/>
-  </head>
-  <body class="bg-gradient-to-br from-green-50 to-blue-100 font-sans min-h-screen">
-    <header class="bg-green-700">
-      <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
-        <h1 class="text-white font-extrabold text-3xl tracking-tight drop-shadow-lg">PETCool</h1>
-        <nav class="space-x-6">
-          <a href="#inovacao" class="text-white hover:text-green-200 font-semibold transition">Inovação</a>
-          <a href="#sustentabilidade" class="text-white hover:text-green-200 font-semibold transition">Sustentabilidade</a>
-          <a href="#impacto" class="text-white hover:text-green-200 font-semibold transition">Impacto Ambiental</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="max-w-5xl mx-auto px-4 py-10">
-      <!-- Hero Section -->
-      <section class="flex flex-col md:flex-row items-center gap-10 mb-16">
-        <div class="md:w-1/2">
-          <h2 class="text-4xl font-bold mb-4 text-green-900 leading-tight">Caixa Térmica Sustentável</h2>
-          <p class="text-lg text-gray-800 font-medium mb-6">
-            A PETCool é uma caixa térmica reutilizável feita com PET reciclado e isolamento ecológico. Mantém alimentos e bebidas em temperatura ideal por até <strong>6 horas</strong> sem energia elétrica.
-          </p>
-          <ul class="space-y-2 text-green-900 font-semibold">
-            <li>✔ Design modular e empilhável</li>
-            <li>✔ Tampa com vedação inteligente</li>
-            <li>✔ Leve, resistente e 100% reciclável</li>
-            <li>✔ <span class="text-blue-700">35 garrafas PET reaproveitadas</span> por unidade!</li>
-          </ul>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETCool - Caixa Térmica Sustentável</title>
+    <meta name="description" content="PETCool - Caixa térmica reutilizável feita com PET reciclado prensado, ideal para transportar alimentos e medicamentos de forma sustentável">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'eco-green': '#2A9D8F',
+                        'eco-light': '#8EEDC7',
+                        'eco-dark': '#264653',
+                        'eco-accent': '#E9C46A',
+                        'eco-orange': '#F4A261',
+                        'eco-red': '#E76F51',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans bg-gray-50 text-eco-dark">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-recycle text-eco-green text-3xl"></i>
+                    <span class="font-bold text-2xl text-eco-dark">PET<span class="text-eco-green">Cool</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="hover:text-eco-green transition-colors duration-300">Recursos</a>
+                    <a href="#sustainability" class="hover:text-eco-green transition-colors duration-300">Sustentabilidade</a>
+                    <a href="#impact" class="hover:text-eco-green transition-colors duration-300">Impacto Ambiental</a>
+                    <a href="#gallery" class="hover:text-eco-green transition-colors duration-300">Galeria</a>
+                    <a href="#contact" class="hover:text-eco-green transition-colors duration-300">Contato</a>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-eco-dark focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="md:w-1/2 flex flex-col items-center">
-          <!-- Produto SVG ultra-resolução -->
-          <div class="shadow-2xl rounded-xl overflow-hidden border-4 border-green-700 bg-white">
-            <!-- Insira sua imagem SVG do produto aqui -->
-            <!-- Recomendação: SVG com dimensões 1200x900px para ultra resolução -->
-            <img
-              src="petcool-produto.svg"
-              alt="PETCool - Caixa térmica sustentável"
-              width="1200"
-              height="900"
-              class="object-cover w-full h-auto max-w-md"
-              loading="eager"
-              id="productImage"
-            />
-          </div>
-          <span class="text-xs text-gray-500 mt-2">*Imagem ultra-resolução recomendada: SVG 1200x900px</span>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-4 py-3 space-y-3">
+                <a href="#features" class="block hover:text-eco-green transition-colors duration-300">Recursos</a>
+                <a href="#sustainability" class="block hover:text-eco-green transition-colors duration-300">Sustentabilidade</a>
+                <a href="#impact" class="block hover:text-eco-green transition-colors duration-300">Impacto Ambiental</a>
+                <a href="#gallery" class="block hover:text-eco-green transition-colors duration-300">Galeria</a>
+                <a href="#contact" class="block hover:text-eco-green transition-colors duration-300">Contato</a>
+            </div>
         </div>
-      </section>
+    </nav>
 
-      <!-- Inovação -->
-      <section id="inovacao" class="mb-16">
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="md:w-2/3">
-            <h3 class="text-2xl font-bold text-green-800 mb-4">Inovação no Produto</h3>
-            <ul class="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Design modular e empilhável para fácil transporte e armazenamento.</li>
-              <li>Tampa com vedação inteligente: mantém temperatura interna até <b>6 horas</b>, sem gelo.</li>
-              <li>Ideal para entregas de restaurantes, lanchonetes, farmácias e uso doméstico.</li>
-              <li>Mais leve que caixas convencionais e totalmente reciclável.</li>
-            </ul>
-          </div>
-          <div class="md:w-1/3 flex justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-              alt="Garrafas PET recicladas"
-              class="rounded-xl shadow-lg w-64 h-64 object-cover"
-              loading="lazy"
-            />
-          </div>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-eco-light/20 to-eco-green/10">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-eco-dark">
+                        <span class="text-eco-green">PETCool</span><br>
+                        Caixa Térmica<br>
+                        <span class="bg-eco-green text-white px-2">Sustentável</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                        Inovação em transporte térmico feita com PET reciclado, 
+                        mantendo alimentos e medicamentos na temperatura ideal 
+                        por até <span class="font-semibold">6 horas</span> sem uso de energia elétrica.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-eco-green hover:bg-eco-green/90 text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Saiba Mais
+                        </button>
+                        <button class="bg-white border-2 border-eco-green text-eco-green hover:bg-eco-green/10 py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Contato
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="w-full h-96 bg-white rounded-xl shadow-2xl overflow-hidden relative">
+                        <!-- Substitua este comentário pela sua imagem SVG do produto -->
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-100">
+                            <p class="text-gray-500 text-center p-4">Insira sua imagem SVG do produto aqui<br>(1200px × 800px)</p>
+                        </div>
+                        
+                        <div class="absolute -bottom-5 -right-5 bg-eco-accent rounded-full p-6 shadow-lg">
+                            <p class="text-eco-dark font-bold">Reutiliza<br><span class="text-2xl">35</span><br>garrafas PET</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Sustentabilidade -->
-      <section id="sustentabilidade" class="mb-16">
-        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
-          <div class="md:w-2/3">
-            <h3 class="text-2xl font-bold text-green-800 mb-4">Sustentabilidade e Reutilização</h3>
-            <ul class="list-disc pl-6 text-gray-700 space-y-2">
-              <li>Cada caixa PETCool reaproveita cerca de <strong>35 garrafas PET</strong>.</li>
-              <li>Substitui o uso de isopor, reduzindo impacto ambiental e estimulando reciclagem.</li>
-              <li>Processo de fabricação com baixa emissão de carbono e reaproveitamento de resíduos plásticos.</li>
-              <li>Produto de longa vida útil e reciclável ao final do ciclo – logística reversa garantida.</li>
-            </ul>
-          </div>
-          <div class="md:w-1/3 flex flex-col items-center gap-4">
-            <img
-              src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=400&q=80"
-              alt="Logística reversa"
-              class="rounded-xl shadow-lg w-64 h-64 object-cover"
-              loading="lazy"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
-              alt="Sustentabilidade"
-              class="rounded-xl shadow-lg w-64 h-64 object-cover"
-              loading="lazy"
-            />
-          </div>
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-eco-dark mb-4">Recursos Inovadores</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    A PETCool combina design inteligente e tecnologia sustentável para oferecer 
+                    um produto revolucionário no transporte térmico.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <div class="bg-eco-green/20 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-cube text-eco-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark">Design Modular</h3>
+                    <p class="text-gray-600">
+                        Sistema de encaixe que facilita o transporte e armazenamento, permitindo empilhamento seguro.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <div class="bg-eco-green/20 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-temperature-low text-eco-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark">Isolamento Superior</h3>
+                    <p class="text-gray-600">
+                        Mantém a temperatura interna por até 6 horas sem necessidade de gelo ou energia elétrica.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <div class="bg-eco-green/20 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-feather-alt text-eco-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark">Leveza</h3>
+                    <p class="text-gray-600">
+                        Significativamente mais leve que caixas térmicas convencionais, facilitando o transporte.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <div class="bg-eco-green/20 rounded-full w-16 h-16 flex items-center justify-center mb-4">
+                        <i class="fas fa-recycle text-eco-green text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-eco-dark">100% Reciclável</h3>
+                    <p class="text-gray-600">
+                        Ao final de sua vida útil, o produto pode ser totalmente reciclado, fechando o ciclo sustentável.
+                    </p>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Impacto Ambiental -->
-      <section id="impacto" class="mb-16">
-        <div class="bg-green-100 rounded-2xl shadow-xl p-8">
-          <h3 class="text-2xl font-bold text-green-900 mb-4">Impacto Ambiental</h3>
-          <ul class="list-disc pl-6 text-gray-700 space-y-2">
-            <li>
-              <span class="font-bold text-green-700">Redução de resíduos plásticos:</span> Diminui descarte de PET e isopor em aterros.
-            </li>
-            <li>
-              <span class="font-bold text-green-700">Apoio à logística verde:</span> Empresas reduzem uso de embalagens descartáveis.
-            </li>
-            <li>
-              <span class="font-bold text-green-700">Economia circular:</span> Produto recolhido, triturado e transformado em novas caixas.
-            </li>
-            <li>
-              <span class="font-bold text-green-700">Benefício social:</span> Gera renda para cooperativas de reciclagem e pequenas indústrias.
-            </li>
-          </ul>
-          <div class="mt-6 flex gap-4 flex-wrap">
-            <img
-              src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-              alt="Economia circular"
-              class="rounded-xl shadow-lg w-48 h-48 object-cover"
-              loading="lazy"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1528821154947-1aa3b1e6b7c2?auto=format&fit=crop&w=400&q=80"
-              alt="Cooperativa"
-              class="rounded-xl shadow-lg w-48 h-48 object-cover"
-              loading="lazy"
-            />
-          </div>
+    <!-- Applications Section -->
+    <section class="py-20 bg-eco-green/5">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-eco-dark mb-4">Aplicações Versáteis</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    A PETCool é a solução ideal para diversos setores e aplicações cotidianas.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="relative overflow-hidden rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1576867757603-05b134ebc379?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Delivery de alimentos" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-semibold mb-2">Delivery de Alimentos</h3>
+                        <p class="text-white/80">Mantém refeições na temperatura ideal durante o transporte.</p>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Transporte de medicamentos" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-semibold mb-2">Transporte de Medicamentos</h3>
+                        <p class="text-white/80">Solução para farmácias que entregam medicamentos sensíveis à temperatura.</p>
+                    </div>
+                </div>
+                
+                <div class="relative overflow-hidden rounded-xl group">
+                    <img src="https://images.unsplash.com/photo-1517457210472-539e3b425d8a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Lazer e eventos" 
+                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-white text-xl font-semibold mb-2">Lazer e Eventos</h3>
+                        <p class="text-white/80">Ideal para piqueniques, praias e eventos ao ar livre de forma sustentável.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="bg-green-800 text-green-100 py-8 mt-16">
-      <div class="max-w-5xl mx-auto text-center text-sm">
-        <p>
-          PETCool – Caixa Térmica Sustentável. Feita com PET reciclado para um mundo mais verde.<br/>
-          <span class="text-green-300">© 2025 PETCool | Logística Reversa e Sustentabilidade</span>
-        </p>
-      </div>
+    <!-- Sustainability Section -->
+    <section id="sustainability" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1616069093413-173b91283f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Garrafas PET recicladas" 
+                         class="rounded-xl shadow-xl w-full h-auto">
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-eco-dark mb-6">Sustentabilidade Incorporada</h2>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Cada PETCool representa nosso compromisso com o meio ambiente e com a transformação 
+                        de resíduos em produtos de valor.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-2 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2 text-eco-dark">Reaproveitamento de Materiais</h3>
+                                <p class="text-gray-600">
+                                    Cada unidade reaproveita aproximadamente 35 garrafas PET que poderiam acabar em aterros ou oceanos.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-2 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2 text-eco-dark">Alternativa ao Isopor</h3>
+                                <p class="text-gray-600">
+                                    Substitui caixas de isopor que têm baixa taxa de reciclagem e permanecem no meio ambiente por centenas de anos.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-2 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2 text-eco-dark">Processo de Baixa Emissão</h3>
+                                <p class="text-gray-600">
+                                    Fabricação com baixa emissão de carbono e reaproveitamento de resíduos plásticos do próprio processo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Impact Section -->
+    <section id="impact" class="py-20 bg-eco-dark text-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Impacto Ambiental Positivo</h2>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Conheça como a PETCool contribui para um mundo mais sustentável a cada unidade produzida.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-colors duration-300">
+                    <div class="bg-eco-green rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-trash-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Redução de Resíduos Plásticos</h3>
+                    <p class="text-gray-300 text-center">
+                        Diminui a quantidade de PET e isopor descartados em aterros e que potencialmente chegariam aos oceanos.
+                    </p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-colors duration-300">
+                    <div class="bg-eco-green rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Apoio à Logística Verde</h3>
+                    <p class="text-gray-300 text-center">
+                        Empresas de delivery e transporte podem reduzir o uso de embalagens descartáveis, diminuindo sua pegada ambiental.
+                    </p>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 hover:bg-white/20 transition-colors duration-300">
+                    <div class="bg-eco-green rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-sync-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-center">Economia Circular</h3>
+                    <p class="text-gray-300 text-center">
+                        O produto pode ser recolhido ao fim de sua vida útil, triturado e transformado novamente em novas caixas.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-eco-green/20 rounded-xl p-8 backdrop-blur-sm">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-semibold mb-2">Benefício Social</h3>
+                        <p class="text-gray-300">
+                            A PETCool gera renda para cooperativas de reciclagem e pequenas indústrias sustentáveis, 
+                            criando um impacto social positivo nas comunidades.
+                        </p>
+                    </div>
+                    <button class="bg-eco-green hover:bg-eco-green/90 text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 whitespace-nowrap">
+                        Conheça Nossos Parceiros
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="py-16 bg-eco-green/10">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-eco-green mb-2 counter" data-target="35">0</div>
+                    <p class="text-eco-dark font-medium">Garrafas PET por unidade</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-eco-green mb-2 counter" data-target="6">0</div>
+                    <p class="text-eco-dark font-medium">Horas de conservação térmica</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-eco-green mb-2 counter" data-target="100">0</div>
+                    <p class="text-eco-dark font-medium">Porcentagem reciclável</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-eco-green mb-2 counter" data-target="40">0</div>
+                    <p class="text-eco-dark font-medium">% mais leve que alternativas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-eco-dark mb-4">Galeria</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Veja o PETCool em ação e descubra como ele está transformando o transporte térmico sustentável.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Processo de reciclagem de PET" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Logística sustentável" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1528190336454-13cd56b45b5a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Piquenique sustentável" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605600659653-0cecfa6c621e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Cooperativa de reciclagem" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Entrega de alimentos" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+                
+                <div class="overflow-hidden rounded-xl cursor-pointer gallery-item">
+                    <img src="https://images.unsplash.com/photo-1589833870942-36352264eda5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                         alt="Garrafas PET recicladas" 
+                         class="w-full h-64 object-cover hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-eco-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <defs>
+                    <pattern id="pattern" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <circle cx="50" cy="50" r="25" fill="white" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#pattern)" />
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Pronto para fazer parte da revolução sustentável?</h2>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                    Junte-se a nós na missão de transformar resíduos plásticos em soluções inovadoras. 
+                    A PETCool é mais que um produto - é um compromisso com o futuro do nosso planeta.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-eco-green hover:bg-eco-green/90 text-white py-4 px-10 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        Solicitar Amostra
+                    </button>
+                    <button class="bg-transparent border-2 border-white hover:bg-white/10 text-white py-4 px-10 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        Entre em Contato
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-eco-dark mb-4">Fale Conosco</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Quer saber mais sobre a PETCool ou discutir possíveis parcerias? Entre em contato!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-eco-green focus:border-eco-green">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-eco-green focus:border-eco-green">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Assunto</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-eco-green focus:border-eco-green">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-eco-green focus:border-eco-green"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-eco-green hover:bg-eco-green/90 text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="bg-eco-green/5 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold text-eco-dark mb-6">Informações de Contato</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-3 text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-eco-dark">Endereço</h4>
+                                <p class="text-gray-600">Av. Sustentabilidade, 123<br>Eco Parque Industrial<br>São Paulo - SP</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-3 text-white">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-eco-dark">Telefone</h4>
+                                <p class="text-gray-600">+55 11 9876-5432</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="bg-eco-green rounded-full p-3 text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-eco-dark">Email</h4>
+                                <p class="text-gray-600">contato@petcool.com.br</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6">
+                            <h4 class="font-medium text-eco-dark mb-4">Redes Sociais</h4>
+                            <div class="flex gap-4">
+                                <a href="#" class="bg-eco-green hover:bg-eco-dark text-white p-3 rounded-full transition-colors duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-eco-green hover:bg-eco-dark text-white p-3 rounded-full transition-colors duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-eco-green hover:bg-eco-dark text-white p-3 rounded-full transition-colors duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-eco-green hover:bg-eco-dark text-white p-3 rounded-full transition-colors duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-eco-dark text-white py-12">
+        <div class="container mx-auto px-4 md:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-recycle text-eco-green text-3xl"></i>
+                        <span class="font-bold text-2xl">PET<span class="text-eco-green">Cool</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Inovação em transporte térmico sustentável, transformando resíduos plásticos em soluções de valor.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Links Rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Recursos</a></li>
+                        <li><a href="#sustainability" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Sustentabilidade</a></li>
+                        <li><a href="#impact" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Impacto Ambiental</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Galeria</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Recursos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Parceiros</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Guias de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Perguntas Frequentes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-eco-green transition-colors duration-300">Notícias</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">
+                        Receba novidades sobre sustentabilidade e nossos produtos.
+                    </p>
+                    <form class="flex flex-col space-y-3">
+                        <input type="email" placeholder="Seu email" class="px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:ring-eco-green focus:border-eco-green text-white">
+                        <button type="submit" class="bg-eco-green hover:bg-eco-green/90 text-white py-3 px-6 rounded-lg font-medium transition-colors duration-300">
+                            Inscrever-se
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 PETCool. Todos os direitos reservados.
+                </p>
+                <div class="flex space-x-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-eco-green transition-colors duration-300">Termos de Uso</a>
+                    <a href="#" class="hover:text-eco-green transition-colors duration-300">Política de Privacidade</a>
+                    <a href="#" class="hover:text-eco-green transition-colors duration-300">Cookies</a>
+                </div>
+            </div>
+        </div>
     </footer>
+    
+    <!-- Modal para exibição da galeria -->
+    <div id="gallery-modal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden">
+        <div class="max-w-4xl w-full mx-4">
+            <div class="relative">
+                <button id="close-modal" class="absolute -top-12 right-0 text-white text-3xl">&times;</button>
+                <img id="modal-image" src="" alt="Imagem ampliada" class="w-full h-auto rounded-lg">
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
-  </body>
+    <script src="scripts.js"></script>
+</body>
 </html>
