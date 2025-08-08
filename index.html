@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>PETCool – Caixa Térmica Sustentável</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body class="bg-gradient-to-br from-green-50 to-blue-100 font-sans min-h-screen">
+    <header class="bg-green-700">
+      <div class="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+        <h1 class="text-white font-extrabold text-3xl tracking-tight drop-shadow-lg">PETCool</h1>
+        <nav class="space-x-6">
+          <a href="#inovacao" class="text-white hover:text-green-200 font-semibold transition">Inovação</a>
+          <a href="#sustentabilidade" class="text-white hover:text-green-200 font-semibold transition">Sustentabilidade</a>
+          <a href="#impacto" class="text-white hover:text-green-200 font-semibold transition">Impacto Ambiental</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-10">
+      <!-- Hero Section -->
+      <section class="flex flex-col md:flex-row items-center gap-10 mb-16">
+        <div class="md:w-1/2">
+          <h2 class="text-4xl font-bold mb-4 text-green-900 leading-tight">Caixa Térmica Sustentável</h2>
+          <p class="text-lg text-gray-800 font-medium mb-6">
+            A PETCool é uma caixa térmica reutilizável feita com PET reciclado e isolamento ecológico. Mantém alimentos e bebidas em temperatura ideal por até <strong>6 horas</strong> sem energia elétrica.
+          </p>
+          <ul class="space-y-2 text-green-900 font-semibold">
+            <li>✔ Design modular e empilhável</li>
+            <li>✔ Tampa com vedação inteligente</li>
+            <li>✔ Leve, resistente e 100% reciclável</li>
+            <li>✔ <span class="text-blue-700">35 garrafas PET reaproveitadas</span> por unidade!</li>
+          </ul>
+        </div>
+        <div class="md:w-1/2 flex flex-col items-center">
+          <!-- Produto SVG ultra-resolução -->
+          <div class="shadow-2xl rounded-xl overflow-hidden border-4 border-green-700 bg-white">
+            <!-- Insira sua imagem SVG do produto aqui -->
+            <!-- Recomendação: SVG com dimensões 1200x900px para ultra resolução -->
+            <img
+              src="petcool-produto.svg"
+              alt="PETCool - Caixa térmica sustentável"
+              width="1200"
+              height="900"
+              class="object-cover w-full h-auto max-w-md"
+              loading="eager"
+              id="productImage"
+            />
+          </div>
+          <span class="text-xs text-gray-500 mt-2">*Imagem ultra-resolução recomendada: SVG 1200x900px</span>
+        </div>
+      </section>
+
+      <!-- Inovação -->
+      <section id="inovacao" class="mb-16">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3">
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Inovação no Produto</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Design modular e empilhável para fácil transporte e armazenamento.</li>
+              <li>Tampa com vedação inteligente: mantém temperatura interna até <b>6 horas</b>, sem gelo.</li>
+              <li>Ideal para entregas de restaurantes, lanchonetes, farmácias e uso doméstico.</li>
+              <li>Mais leve que caixas convencionais e totalmente reciclável.</li>
+            </ul>
+          </div>
+          <div class="md:w-1/3 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              alt="Garrafas PET recicladas"
+              class="rounded-xl shadow-lg w-64 h-64 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Sustentabilidade -->
+      <section id="sustentabilidade" class="mb-16">
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+          <div class="md:w-2/3">
+            <h3 class="text-2xl font-bold text-green-800 mb-4">Sustentabilidade e Reutilização</h3>
+            <ul class="list-disc pl-6 text-gray-700 space-y-2">
+              <li>Cada caixa PETCool reaproveita cerca de <strong>35 garrafas PET</strong>.</li>
+              <li>Substitui o uso de isopor, reduzindo impacto ambiental e estimulando reciclagem.</li>
+              <li>Processo de fabricação com baixa emissão de carbono e reaproveitamento de resíduos plásticos.</li>
+              <li>Produto de longa vida útil e reciclável ao final do ciclo – logística reversa garantida.</li>
+            </ul>
+          </div>
+          <div class="md:w-1/3 flex flex-col items-center gap-4">
+            <img
+              src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?auto=format&fit=crop&w=400&q=80"
+              alt="Logística reversa"
+              class="rounded-xl shadow-lg w-64 h-64 object-cover"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+              alt="Sustentabilidade"
+              class="rounded-xl shadow-lg w-64 h-64 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Impacto Ambiental -->
+      <section id="impacto" class="mb-16">
+        <div class="bg-green-100 rounded-2xl shadow-xl p-8">
+          <h3 class="text-2xl font-bold text-green-900 mb-4">Impacto Ambiental</h3>
+          <ul class="list-disc pl-6 text-gray-700 space-y-2">
+            <li>
+              <span class="font-bold text-green-700">Redução de resíduos plásticos:</span> Diminui descarte de PET e isopor em aterros.
+            </li>
+            <li>
+              <span class="font-bold text-green-700">Apoio à logística verde:</span> Empresas reduzem uso de embalagens descartáveis.
+            </li>
+            <li>
+              <span class="font-bold text-green-700">Economia circular:</span> Produto recolhido, triturado e transformado em novas caixas.
+            </li>
+            <li>
+              <span class="font-bold text-green-700">Benefício social:</span> Gera renda para cooperativas de reciclagem e pequenas indústrias.
+            </li>
+          </ul>
+          <div class="mt-6 flex gap-4 flex-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+              alt="Economia circular"
+              class="rounded-xl shadow-lg w-48 h-48 object-cover"
+              loading="lazy"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1528821154947-1aa3b1e6b7c2?auto=format&fit=crop&w=400&q=80"
+              alt="Cooperativa"
+              class="rounded-xl shadow-lg w-48 h-48 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-green-800 text-green-100 py-8 mt-16">
+      <div class="max-w-5xl mx-auto text-center text-sm">
+        <p>
+          PETCool – Caixa Térmica Sustentável. Feita com PET reciclado para um mundo mais verde.<br/>
+          <span class="text-green-300">© 2025 PETCool | Logística Reversa e Sustentabilidade</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
